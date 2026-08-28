@@ -37,7 +37,7 @@
         <a href="#features" class="hover:text-white transition-colors">Features</a>
         <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
         <a href="#" class="hover:text-white transition-colors">Landlord Stories</a>
-        <a href="#share" class="hover:text-white transition-colors">Share & Refer</a>
+        <span class="hover:text-white transition-colors">Share & Refer</span>
       </nav>
 
       <!-- Auth Action Buttons -->
@@ -292,25 +292,6 @@
           </a>
         </div>
       </div>
-
-        <!-- ADDED: SHARE AND REFERRAL ACTION BAR -->
-        <div id="share" class="pt-1 mt-4 text-center max-w-xl mx-auto">
-          <div class="bg-slate-900/60 backdrop-blur-xs border border-slate-800/80 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="text-left space-y-1">
-              <div class="text-xs font-bold text-white flex items-center gap-1.5">
-                Know other Landlords in Abuja?
-              </div>
-              <p class="text-[11px] text-slate-400 leading-tight">Spread the word, share RentReceipt with your friends and colleagues.</p>
-            </div>
-            
-            <button id="shareButton" class="w-full sm:w-auto cursor-pointer inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 active:scale-98 text-white font-semibold text-xs px-4 py-2.5 rounded-xl border border-slate-700/60 shadow-md transition-all shrink-0">
-              <svg id="shareIcon" class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.748l5.176-2.588M14.316 15.842l-5.176-2.588M6 16a3 3 0 100-6 3 3 0 000 6zm12-7a3 3 0 100-6 3 3 0 000 6zm0 14a3 3 0 100-6 3 3 0 000 6z"/>
-              </svg>
-              <span id="shareText">Share & Refer</span>
-            </button>
-          </div>
-        </div>
     </section>
   </main>
 

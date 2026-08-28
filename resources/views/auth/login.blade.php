@@ -21,10 +21,10 @@
 
         <!-- Header / Logo -->
         <div class="relative z-10">
-            <div class="flex items-center gap-3">
+            <a href="/" class="flex items-center gap-3">
                 <img src="{{ asset('android-chrome-192x192.png') }}" class="h-11 w-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md flex items-center justify-center text-emerald-400 font-bold text-xl shadow-inner">
                 <span class="text-xl font-bold tracking-tight text-white">RentReceipt</span>
-            </div>
+            </a>
         </div>
 
         <!-- Center Hero Text & Glass Card Visual -->
@@ -88,9 +88,7 @@
             <div class="lg:hidden text-center space-y-3">
                 <img src="{{ asset('android-chrome-192x192.png') }}" class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xl font-bold">
                     
-                <h2 class="text-2xl font-bold text-white">RentReceipt
-                    {{-- <span class="text-emerald-400">.ng</span> --}}
-                </h2>
+                <h2 class="text-2xl font-bold text-white">RentReceipt</h2>
             </div>
 
             <!-- Header -->

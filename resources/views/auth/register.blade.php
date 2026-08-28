@@ -22,13 +22,11 @@
 
         <!-- Header / Logo -->
         <div class="relative z-10">
-            <div class="flex items-center gap-3">
+            <a href="/" class="flex items-center gap-3">
                 <img src="{{ asset('android-chrome-192x192.png') }}" class="h-11 w-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md flex items-center justify-center text-emerald-400 font-bold text-xl shadow-inner">
                 
-                <span class="text-xl font-bold tracking-tight text-white">
-                    RentReceipt
-                </span>
-            </div>
+                <span class="text-xl font-bold tracking-tight text-white">RentReceipt</span>
+            </a>
         </div>
 
         <!-- Center Hero Text & Glass Card Visual -->
