@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Receipt</title>
+  <style>
+      /* Base Reset & Core Tailwind Mappings */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+        background-color: #f1f5f9; /* bg-slate-100 */
+        min-height: 100vh;
+        padding: 1.5rem; /* p-6 */
+    }
+
+    /* Layout Utilities */
+    .max-w-xl { max-width: 36rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mt-0\.5 { margin-top: 0.125rem; }
+    .mt-1 { margin-top: 0.25rem; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mb-1 { margin-bottom: 0.25rem; }
+    .pb-4 { padding-bottom: 1rem; }
+    .p-4 { padding: 1rem; }
+    .p-6 { padding: 1.5rem; }
+    .pt-2 { padding-top: 0.5rem; }
+    .pt-4 { padding-top: 1rem; }
+    .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+
+    /* Flex & Grid Systems */
+    .flex { display: flex; }
+    .items-start { align-items: flex-start; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-end { justify-content: flex-end; }
+    .grid { display: grid; }
+    .grid-cols-2
+    .gap-2 { gap: 0.5rem; }
+    .gap-1 { gap: 0.25rem; }
+    .gap-5 { gap: 1.25rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
+    .space-y-6 > * + * { margin-top: 1.5rem; }
+    .block { display: block; }
+
+    /* Borders & Shapes */
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-xl { border-radius: 0.75rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .rounded { border-radius: 0.25rem; }
+    .rounded-full { border-radius: 9999px; }
+    .border { border: 1px solid; }
+    .border-b { border-bottom: 1px solid; }
+    .border-t { border-top: 1px solid; }
+    .border-slate-100 { border-color: #f1f5f9; }
+    .border-slate-200 { border-color: #e2e8f0; }
+    .border-dashed { border-style: dashed; }
+    .overflow-hidden { overflow: hidden; }
+    .relative { position: relative; }
+
+    /* Sizing Utilities */
+    .w-8 { width: 2rem; }
+    .h-8 { height: 2rem; }
+    .w-4 { width: 1rem; }
+    .h-4 { height: 1rem; }
+    .w-3-5 { width: 0.875rem; }
+    .h-3-5 { height: 0.875rem; }
+    .max-h-5 { max-height: 1.25rem; }
+
+    /* Typography */
+    .font-semibold { font-weight: 600; }
+    .font-medium { font-weight: 500; }
+    .font-bold { font-weight: 700; }
+    .font-extrabold { font-weight: 800; }
+    .text-sm { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-\[10px\] { font-size: 10px; }
+    .text-\[9px\] { font-size: 9px; }
+    .text-\[8px\] { font-size: 8px; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-tight { letter-spacing: -0.025em; }
+    .tracking-wide { letter-spacing: 0.025em; }
+    .tracking-widest { letter-spacing: 0.1em; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+
+    /* Color Profiles */
+    .bg-blue-900 { background-color: #1e3a8a; }
+    .bg-slate-900 { background-color: #0f172a; }
+    .bg-white { background-color: #ffffff; }
+    .bg-emerald-100 { background-color: #d1fae5; }
+    .bg-emerald-500-20 { background-color: rgba(16, 185, 129, 0.2); }
+    .text-white { color: #ffffff; }
+    .text-slate-400 { color: #94a3b8; }
+    .text-slate-700 { color: #334155; }
+    .text-slate-800 { color: #1e293b; }
+    .text-slate-900 { color: #0f172a; }
+    .text-emerald-400 { color: #34d399; }
+    .text-emerald-800 { color: #065f46; }
+    .text-emerald-600 { color: #059669; }
+
+    /* UI Effects & Interactions */
+    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+    .transition { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    .bg-blue-900:hover { background-color: #1e293b; cursor: pointer; }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen p-6">
+    <!-- Receipt Container -->
+    <div class="receipt-container max-w-xl mx-auto bg-white p-6 rounded-2xl border border-slate-200 shadow-md space-y-6 relative overflow-hidden">
+
+        <!-- Top Watermark / Brand Header -->
+        <div class="flex items-start justify-between border-b border-slate-100 pb-4">
+            <div>
+                <h3 class="font-extrabold text-slate-900 uppercase text-sm tracking-tight">
+                    Rent Receipt
+                </h3>
+                <p id="preview-property-title" class="text-[10px] text-slate-400 mt-0.5">
+                    Luxury Apartment Block A
+                </p>
+                <p id="preview-landlord-phone" class="text-[10px] text-slate-400">
+                    Tel: +234 801 234 5678
+                </p>
+            </div>
+
+            <div class="text-right">
+                <span id="preview-receipt-number" class="block bg-emerald-100 text-emerald-800 font-bold text-[10px] px-2 py-0.5 rounded font-mono">
+                    REC-2026-0042
+                </span>
+                <span class="text-[10px] text-slate-400">
+                    Date:
+                    <span id="preview-date">Aug 22, 2026</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Live Dynamic Content Block -->
+        <div class="space-y-4">
+
+            <!-- Tenant -->
+            <div>
+                <span class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">
+                    Received From
+                </span>
+                <p id="preview-tenant" class="text-sm font-bold text-slate-900 mt-0.5">
+                    John Doe
+                </p>
+            </div>
+
+            <!-- Property -->
+            <div>
+                <span class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">
+                    Property / Unit
+                </span>
+                <p id="preview-property" class="text-xs font-medium text-slate-700 mt-0.5">
+                    123 Innovation Way, Central Area &mdash; Suite 4B
+                </p>
+            </div>
+
+            <!-- Tenancy / Payment -->
+            <div class="flex items-start justify-between border-slate-100 pt-2 border-t">
+                <div>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">
+                        Tenancy Period
+                    </span>
+                    <p id="preview-period" class="text-xs font-semibold text-slate-800 mt-0.5">
+                        Jan 01, 2026 &mdash; Dec 31, 2026
+                    </p>
+                </div>
+
+                <div class="text-right">
+                    <span class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">
+                        Payment Method
+                    </span>
+                    <p id="preview-method" class="text-xs font-semibold text-slate-800 mt-0.5">
+                        Bank Transfer
+                    </p>
+                </div>
+            </div>
+
+            <!-- Highlighted Amount Banner -->
+            <div class="bg-slate-900 text-white rounded-xl p-4 flex items-center justify-between mt-2">
+                <div>
+                    <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider block">
+                        Total Paid
+                    </span>
+                    <span id="preview-amount" class="text-xl font-extrabold text-white tracking-tight">
+                        ₦2,500,000.00
+                    </span>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-emerald-500-20 text-emerald-400 flex items-center justify-center">                  
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Signature -->
+        <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-400">
+            <!-- Status -->
+            <div>
+                <div class="text-[8px] text-slate-400 uppercase tracking-wider mb-1">
+                    Status
+                </div>
+                <span class="text-emerald-600 font-bold text-[9px] flex items-center gap-1">
+                    <svg class="w-3-5 h-3-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Payment Confirmed
+                </span>
+            </div>
+
+            <!-- Signature -->
+            <div class="text-center signature-area">
+                <!-- Replace 'signature.png' with your actual image path or a base64 string -->
+                <img id="preview-signature" src="signature.png" alt="Authorized Signature" class="px-3 max-h-5">
+                <div class="text-[9px] text-slate-400 mt-1">Authorized Signature</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
