@@ -97,7 +97,7 @@
             </div>
 
             <!-- Header -->
-            <div class="text-left space-y-2">
+            <div class="text-center space-y-2">
                 <h2 class="text-3xl font-extrabold text-white tracking-tight">Create your account</h2>
                 <p class="text-sm text-slate-400">Join landlords managing their rent billing seamlessly.</p>
             </div>

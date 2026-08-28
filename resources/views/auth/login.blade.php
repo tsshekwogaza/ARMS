@@ -94,7 +94,7 @@
             </div>
 
             <!-- Header -->
-            <div class="text-left space-y-2">
+            <div class="text-center space-y-2">
                 <h2 class="text-3xl font-extrabold text-white tracking-tight">Welcome back</h2>
                 <p class="text-sm text-slate-400">Sign in to manage your properties and issue receipts.</p>
             </div>
