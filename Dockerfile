@@ -65,4 +65,5 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # 10. Expose the port (Render detects this automatically, but uses $PORT at runtime)
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+# Run the deploy script first, then launch Apache
+CMD ["/bin/sh", "-c", "./deploy.sh && apache2-foreground"]
