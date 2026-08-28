@@ -51,6 +51,9 @@ RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/g' /etc/apache2/sites-
 WORKDIR /var/www/html
 COPY . .
 
+# ADD THIS LINE TO FIX THE PERMISSION DENIED ERROR:
+RUN chmod +x deploy.sh
+
 # 7. Copy compiled assets from Stage 1
 COPY --from=frontend_builder /app/public/build ./public/build
 
