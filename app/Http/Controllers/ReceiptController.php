@@ -91,7 +91,6 @@ class ReceiptController extends Controller
         return "https://wa.me/{$tenant->phone_number}?text={$message}";
     }
 
-
     public function viewDetails(Receipt $receipt)
     {
         if ($receipt->user_id !== Auth::id()) {
