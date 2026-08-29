@@ -39,14 +39,14 @@ class RegisteredUserController extends Controller
                 // Storage::disk('public')->delete($user->signature_path);
                 Storage::delete($user->signature_path);
             }
-            $user->signature_path = $request->file('signature_path')->store('images', 'public');
+            $user->signature_path = $request->file('signature_path')->store('images', 'r2');
         }
 
         if ($request->hasFile('avatar')) {
             if ($user->avatar && $user->avatar !== 'images/avatar.png') {
                 Storage::delete($user->avatar);
             }
-            $user->avatar = $request->file('avatar')->store('images', 'public');
+            $user->avatar = $request->file('avatar')->store('images', 'r2');
         }
 
         $user->update([

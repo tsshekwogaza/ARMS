@@ -34,7 +34,7 @@ class PropertyController extends Controller
         ]);
 
         if ($request->hasFile('image_url')) {
-            $path = $request->file('image_url')->store('properties', 'public');
+            $path = $request->file('image_url')->store('properties', 'r2');
             
             $validated['image_url'] = $path;
         }
@@ -73,7 +73,7 @@ class PropertyController extends Controller
                 Storage::delete($property->image_url);
             }
                     
-            $path = $request->file('image_url')->store('properties', 'public');
+            $path = $request->file('image_url')->store('properties', 'r2');
             
             $validated['image_url'] = $path;
         }
