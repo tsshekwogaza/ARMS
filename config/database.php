@@ -60,7 +60,9 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                Mysql::ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', base_path('ca.pem')),
+                Mysql::ATTR_SSL_CA => env
+                // Use Aiven DB ('MYSQL_ATTR_SSL_CA', base_path('ca.pem')),
+                ('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
