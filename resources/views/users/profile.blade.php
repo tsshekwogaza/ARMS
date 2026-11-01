@@ -121,6 +121,15 @@
 			<a href="/" class="rounded-lg border px-5 py-2.5 text-sm bg-slate-50">Cancel</a>
 			
 			<button type="submit" class="rounded-lg bg-teal-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-teal-700">Save Changes</button>
+
+			<button type="submit" form="logout-user" class="group p-2 rounded-lg text-red-600 hover:bg-slate-300 transition-all focus-visible:outline-red-500" title="Log Out">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+			</button>
 		</div>
 	</form>
+
+	<form method="POST" action="/logout" id="logout-user">
+		@csrf 
+	</form>
+
 </x-layout>
